@@ -17,20 +17,14 @@ Card::Card(std::string debit_account_id_, CardType card_type_,
 	state = State::AVAILABLE;
 }
 
-void Card::rebinding(std::string debit_account_id_)
-{
-	debit_account_id = debit_account_id_;
-}
-
-void Card::close()
-{
-	state = State::UNAVAILABLE;
-	debit_account_id = "";
-}
-
 std::string Card::get_debit_account() const
 {
 	return debit_account_id;
+}
+
+void Card::set_debit_account_id(std::string id_)
+{
+	debit_account_id = id_;
 }
 
 Card::CardType Card::get_card_type() const

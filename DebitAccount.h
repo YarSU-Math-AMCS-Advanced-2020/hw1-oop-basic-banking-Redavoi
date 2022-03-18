@@ -16,6 +16,7 @@ public:
 	DebitAccount(std::string id_, Currency currency_, Money balance_,
 		Money withdrawal_limit_ = Money(-1));
 	DebitAccount(const DebitAccount& debit_account_);
+	void close_card();
 	std::string get_id() const;
 	Currency get_currency() const;
 	Money get_balance() const;

@@ -19,7 +19,9 @@ void Transaction::make_transaction()
 	if (account_from_direct.get_currency() !=
 		account_to_direct.get_currency() ||
 		amount > account_from_direct.get_balance() ||
-		account_to_direct.get_currency() != currency)
+		account_to_direct.get_currency() != currency ||
+		account_from_direct.get_card() == nullptr ||
+		account_to_direct.get_card() == nullptr)
 		state = State::CANCELED;
 	else
 	{

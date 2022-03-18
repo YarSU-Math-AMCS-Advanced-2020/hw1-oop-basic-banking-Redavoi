@@ -30,7 +30,7 @@ status for closing a debit account\n");
 	else
 	{
 		if (debit_account.get_card() != nullptr)
-			debit_account.get_card()->close();
+			debit_account.close_card();
 		for (int i = 0; i < debit_accounts.size(); i++)
 			if (debit_accounts[i].get_id() == debit_account.get_id())
 				debit_accounts.erase(debit_accounts.cbegin() + i);
@@ -57,11 +57,21 @@ operation status for closing a debit account\n");
 	else
 	{
 		if (debit_account.get_card() != nullptr)
-			debit_account.get_card()->close();
+			debit_account.close_card();
 		for (int i = 0; i < debit_accounts.size(); i++)
 			if (debit_accounts[i].get_id() == debit_account.get_id())
 				debit_accounts.erase(debit_accounts.cbegin() + i);
 	}
+}
+
+void BankAccount::rebinding_card(Card* card, std::string debit_account_id_from,
+	std::string debit_account_id_to)
+{
+	if (get_debit_account(debit_account_id_to).get_card() != nullptr)
+		throw std::runtime_error("Rebinding card error: The second account \
+already has a card");
+	get_debit_account(debit_account_id_from).close_card();
+	get_debit_account(debit_account_id_to).set_card(card);
 }
 
 std::string BankAccount::get_phone_number() const

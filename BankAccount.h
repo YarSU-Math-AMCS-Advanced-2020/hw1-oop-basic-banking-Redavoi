@@ -18,7 +18,10 @@ public:
 	void close_debit_account_transaction(std::string id_,
 		DebitAccount& account_to, Date date_);
 	void close_debit_account_withdrawal(std::string id_, Date date_,
-		CashOperation::Place place_, std::string place_id_, bool closing = false);
+		CashOperation::Place place_, std::string place_id_,
+		bool closing = false);
+	void rebinding_card(Card *card, std::string debit_account_id_from,
+		std::string debit_account_id_to);
 	std::string get_phone_number() const;
 	void set_phone_number(std::string phone_number_);
 	std::string get_account_id() const;

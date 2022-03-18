@@ -15,9 +15,9 @@ public:
 	Card();
 	Card(std::string debit_account_id_, CardType card_type_,
 		std::string id_, Date validity_, Money transfer_limit_ = Money(-1));
-	void rebinding(std::string debit_account_id_);
-	void close();
+	//void close();
 	std::string get_debit_account() const;
+	void set_debit_account_id(std::string id_);
 	CardType get_card_type() const;
 	std::string get_id() const;
 	Date get_validity() const;

@@ -76,9 +76,5 @@ void PersonalBankAccount::set_passport(std::string passport_)
 
 std::string PersonalBankAccount::get_patronymic() const
 {
-	if (has_patronymic())
-		return patronymic;
-	else
-		throw std::runtime_error("Patronymic error: Patronymic \
-is doesn't exist\n");
+	return patronymic;
 }
